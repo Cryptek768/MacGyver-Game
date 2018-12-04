@@ -1,5 +1,6 @@
-import Main
+import Constant
 def map():
+
     # create window
     screen = pygame.display.set_mode(WINDOW_SIZE)
     pygame.display.set_caption('Free MacGyver')
