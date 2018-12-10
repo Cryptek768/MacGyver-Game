@@ -1,11 +1,21 @@
-import pygame
-from pygame.locals import*
+"""Constants for the macgyver game"""
 
-"""Constants"""
+# Window parameters
+SPRITES_IN_LEVEL = 15
+SIZE_OF_SPRITE = 30
+SIZE_OF_LEVEL = SPRITES_IN_LEVEL * SIZE_OF_SPRITE
 
-WINDOW_SIZE = (600, 600)
-BOARD_WIDHT = 15
-BOARD_LENGTH = 15
-SPRITE_SIZE = (40,40)
-COLOR_GRAY = (128, 128, 128)
-COLOR_WHITE = (255, 255, 255)
+# List of pictures in the game
+BACKGROUND = 'Pictures/Background.jpg'
+WALLPIC = 'Pictures/Wall.png'
+MACGYVERPIC = 'Pictures/MacGyver.png'
+GUARDIANPIC = 'Pictures/Guardian.png'
+OBJECTS_PICTURES = ['Pictures/Needle.png', 'Pictures/Tube.png', 'Pictures/ether.png']
+
+
+# Game parameters
+NUMBER_OF_COLLECTABLES = len(OBJECTS_PICTURES)
+
+
+# Window parameters
+WINDOW_TITLE = "MacGyver"
