@@ -1,5 +1,4 @@
 """file with all classes for the macgyver game"""
-import random
 import pygame
 from constants import *
 
@@ -29,7 +28,7 @@ class Level:
         self.structure = level_list
 
     def display_walls(self, screen):
-        """Reads the level table, displays walls and guardian
+        """Reads the level table, displays walls
         and stores all non-wall tiles in available_tiles"""
 
 
@@ -47,9 +46,8 @@ class Level:
 
                 if ligne_vert == str(1):
                     screen.blit(wall, (position_x, position_y))
-                else:
-                    if ligne_vert == str(0):
-                        self.available_tiles.append((num_col, num_line))
+                elif ligne_vert == str(0):
+                     self.available_tiles.append((num_col, num_line))
 
                 num_col += 1
             num_line += 1
