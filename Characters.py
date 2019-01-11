@@ -3,7 +3,7 @@ from constants import *
 
 class MacGyver:
     "Display Macgyver on the map"
-    def __init__(self, x, y):
+    def __init__(self, x, y, screen, Level):
         self.psox = x
         self.posy = y
         self.sprite_x = int(x /30)
@@ -29,16 +29,19 @@ class MacGyver:
               if self.level.structure[self.sprite_y+1][self.sprite_x] !='1':
                 self.posy +=30
                 self.sprite_y +=1
+
         elif direction == 'up':
              if self.sprite_y > 0:
                 if self.level.structure[self.sprite_y-1][self.sprite_x] !='1':
-                    self.posy += 30
-                    self.sprite_y += 1
+                    self.posy -= 30
+                    self.sprite_y -= 1
+
         elif direction == 'left':
              if self.sprite_x > 0:
                 if self.level.structure[self.sprite_y][self.sprite_x-1] !='1':
                    self.posy -= 30
                    self.sprite_y -= 1
+
         elif direction == 'right':
              if self.sprite_x < (SPRITES_IN_LEVEL-1):
                 if self.level.structure[self.sprite_y][self.sprite_x+1] != '1':
