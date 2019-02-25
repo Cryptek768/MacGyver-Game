@@ -1,7 +1,6 @@
 import pygame
 from Level import *
 from Intel import *
-
 class Characters:
     
 #init de la classe des perso
@@ -40,7 +39,25 @@ class Characters:
                 else:
                     if ligne_verti ==str(3):
                         self.available_tiles.append((num_col, num_line))
-        
-        
 
-    
+    def move_MG(self, direction):
+        if direction == 'down':
+            if self.sprite_y (Sprite_Size_Level-1):
+                if self.map_structure[self.sprite_y+1][self.sprite_x] != '1':
+                    self.position_y += 30
+                    self.position_x += 1
+        elif direction == 'up':
+            if self.sprite_y > 0:
+                if self.map_structure[self.sprite_y-1][self.sprite_x] !='1':
+                    self.position_y -= 1
+        elif direction == 'left':
+            if self.sprite_x > 0:                
+                if self.map_structure[self.sprite_y][self.sprite_x-1] !='1':
+                    self.position_x -= 30
+                    self.position_y -= 1
+        elif direction == 'right':
+            if self.sprite_x < (Sprite_Size_Level-1):
+                if self.map_structure[self.sprite_y][self.sprite_x+1] != '1':
+                    self.position_x += 30
+                    self.sprite_x += 1
+                

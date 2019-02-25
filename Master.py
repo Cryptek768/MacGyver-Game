@@ -16,6 +16,7 @@ class Master:
         while 1:
             master.display_wall(screen)
             MacGyver.blit_MG(master.map_structure,screen)
+            MacGyver.move_MG('direction')
             Guardian.blit_G(master.map_structure, screen)
             pygame.display.flip()
             
