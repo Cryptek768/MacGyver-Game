@@ -7,18 +7,10 @@ from Characters import *
 #Fichier parametres du jeux qui prends les parametres du jeux
 
 class Setting:
+#Methode de déplacement du joueur en parametre
     
-    def setting():
-        
-        screen = pygame.display.set_mod((Size_Level, Size_Level))
-        current_level = Level('Map')
-        current_level.display_walls(screen)
-        MacGyver = MacGyver(0, 0, screen)
-        Guardian = Gurdian(0, 0, screen)
-        return MacGyver, Guardian, screen
-
     def setting_player_move():
-
+        Level.dispaly_wall(screen)
         for event in pygame.event.get():
             if event.type == KEYDOWN:
                 if event.key == K_DOWN:
@@ -30,4 +22,3 @@ class Setting:
                 if event.key == K_RIGHT:
                     Characters.move_MG('right')
         Characters.blit_MG()
-        return active, gameplay

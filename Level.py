@@ -1,6 +1,7 @@
 import pygame
 from Intel import *
 from Setting import *
+from Item import *
 
 #Classe du Niveau
 class Level:
@@ -41,7 +42,3 @@ class Level:
                     self.available_tiles.append((num_col, num_line))
                 num_col +=1
             num_line +=1
-        
-        
-                    
-        

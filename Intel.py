@@ -8,3 +8,4 @@ Background = 'images/Background.jpg'
 Wall = 'images/Wall.png'
 MacGyver = 'images/MacGyver.png'
 Guardian = 'images/Guardian.png'
+Objects = ['images/Needle.png', 'images/Ether.png', 'images/Tube.png']

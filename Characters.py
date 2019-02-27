@@ -1,6 +1,7 @@
 import pygame
 from Level import *
 from Intel import *
+from Setting import *
 class Characters:
     
 #init de la classe des perso
@@ -39,7 +40,8 @@ class Characters:
                 else:
                     if ligne_verti ==str(3):
                         self.available_tiles.append((num_col, num_line))
-
+                        
+#Methode de deplacemen du joueur
     def move_MG(self, direction):
         if direction == 'down':
             if self.sprite_y (Sprite_Size_Level-1):
