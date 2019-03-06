@@ -8,4 +8,6 @@ Background = 'images/Background.jpg'
 Wall = 'images/Wall.png'
 MacGyver = 'images/MacGyver.png'
 Guardian = 'images/Guardian.png'
-Objects = ['images/Needle.png', 'images/Ether.png', 'images/Tube.png']
+Object_N = 'images/Needle.png'
+Object_E = 'images/Ether.png'
+Object_T = 'images/Tube.png'

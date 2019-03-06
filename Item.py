@@ -4,15 +4,25 @@ from Intel import *
 from Setting import *
 from Level import *
 
-class Items_Spawn:
-    
-    def Items_spawn(self, map_structure):
-        Items_images = pygame.image.load(str(Objects)).convert_alpha()
+class Items:
+    def __init__(self, level_structure, screen,):
+        self.map_strucutre = level_structure
+        self.available_tiles = []
+        self.Item_Needle = pygame.image.load(Object_N).convert_alpha()
+        self.Item_Ether = pygame.image.load(Object_E).convert_alpha()
+        self.Item_Tube = pygame.image.load(Object_T).convert_alpha()
+        
+    def Items_spawn(self, level_structure, screen):
         num_line = 0
-        for Items_Place_horiz in self.Items_location:
+        for line in level_structure:
             num_col = 0
-            for Items_Place_verti in Items_place_horiz:
-                rand_location_x = num_col + random.randint(0,15)
-                rand_location_y = num_line + random.randint(0, 15)
-                if Items_place_verti == str(0):
-                    screen.blit(Items_images (rand_location_x, rand_location_y))
+            for ligne_verti in line:
+                rand_location_x = num_col + random.randint(0,14)
+                rand_location_y = num_line + random.randint(0, 14)
+                if ligne_verti <= str(0):
+                    screen.blit(self.Item_Needle, (rand_location_x, rand_location_y))
+                else:
+                    if ligne_verti == str(1):
+                        self.available_tiles.append((num_col, num_line))
+                        """screen.blit(Item_Ether, (rand_location_x, rand_location_y))"""
+                        """screen.blit(Item_Tube, (rand_location_x, rand_location_y))"""

@@ -10,7 +10,6 @@ class Level:
     def __init__(self, map_pool):
         self.map_pool = map_pool
         self.map_structure = []
-        self.available_tiles = []
         self.background = pygame.image.load(Background).convert()
         
 #Methode de la classe level qui traite le fichier Map.txt
@@ -38,7 +37,5 @@ class Level:
                 position_y = num_line * Sprite_Size
                 if ligne_verti == str(1):
                     screen.blit(wall, (position_x, position_y))
-                elif ligne_verti == str(0):
-                    self.available_tiles.append((num_col, num_line))
                 num_col +=1
             num_line +=1
