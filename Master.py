@@ -12,7 +12,7 @@ class Master:
         master.level()
         MacGyver = Characters(0, 0, screen, Level)
         Guardian = Characters(0, 0, screen, Level)
-        Objects = Items(Level, screen)
+        item = Items(0, 0, Level, screen)
         master.display_wall(screen)
         while 1:
             for event in pygame.event.get():
@@ -26,8 +26,8 @@ class Master:
                     if event.key == K_RIGHT:
                         MacGyver.move_MG('right')
             master.display_wall(screen)
-            Objects.Items_spawn(master.map_structure, screen)
-            MacGyver.blit_MG(master.map_structure,screen)
+            "MacGyver.blit_MG(master.map_structure,screen)"
+            item.Items_spawn(master.map_structure, screen)
             Guardian.blit_G(master.map_structure, screen)
             pygame.display.flip()
             
