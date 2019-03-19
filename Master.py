@@ -10,24 +10,33 @@ class Master:
         screen = pygame.display.set_mode((Size_Level, Size_Level))
         master = Level("Map.txt")
         master.level()
-        MacGyver = Characters(0, 0, screen, Level)
-        Guardian = Characters(0, 0, screen, Level)
-        item = Items(0, 0, Level, screen)
+        MacGyver = Characters(screen, master.map_structure)
+        Guardian = Characters(screen, Level)
+        item_needle = Items(master.map_structure, screen)
+        item_ether = Items(master.map_structure, screen)
+        item_tube = Items(master.map_structure, screen)
+
+        MacGyver.move_MG(master.map_structure)
+        item_needle.Items_spawn_Needle(master.map_structure)
+        item_ether.Items_spawn_Ether(master.map_structure)
+        item_tube.Items_spawn_Tube(master.map_structure)
         master.display_wall(screen)
         while 1:
             for event in pygame.event.get():
                 if event.type == KEYDOWN:
                     if event.key == K_DOWN:
-                        MacGyver.move_MG('down')
-                    if event.key == K_UP:
-                        MacGyver.move_MG('up')
-                    if event.key == K_LEFT:
-                        MacGyver.move_MG('left')
-                    if event.key == K_RIGHT:
                         MacGyver.move_MG('right')
+                    if event.key == K_UP:
+                        MacGyver.move_MG('left')
+                    if event.key == K_LEFT:
+                        MacGyver.move_MG('up')
+                    if event.key == K_RIGHT:
+                        MacGyver.move_MG('down')
             master.display_wall(screen)
-            "MacGyver.blit_MG(master.map_structure,screen)"
-            item.Items_spawn(master.map_structure, screen)
+            screen.blit(item_needle.Item_Needle,(item_needle.item_position_y, item_needle.item_position_x))
+            screen.blit(item_ether.Item_Ether,(item_ether.item_position_y, item_ether.item_position_x))
+            screen.blit(item_tube.Item_Tube,(item_tube.item_position_y, item_tube.item_position_x))
+            screen.blit(MacGyver.image_Macgyver,(MacGyver.position_y, MacGyver.position_x))
             Guardian.blit_G(master.map_structure, screen)
             pygame.display.flip()
             

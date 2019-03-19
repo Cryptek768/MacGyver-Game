@@ -5,11 +5,11 @@ from Setting import *
 class Characters:
     
 #init de la classe des perso
-    def __init__(self, x, y, screen, level_structure):
-        self.position_x = x
-        self.position_y = y
-        self.sprite_x = int(x /30)
-        self.sprite_y = int(y /30)
+    def __init__(self, screen, level_structure):
+        self.position_x = 0
+        self.position_y = 0
+        self.sprite_x = int(0 /30)
+        self.sprite_y = int(0 /30)
         self.map_structure = level_structure
         self.available_tiles = []
         self.image_Macgyver = pygame.image.load(MacGyver).convert_alpha()
@@ -54,7 +54,7 @@ class Characters:
         elif direction == 'up':
             if self.sprite_y > 0:
                 if self.map_structure[self.sprite_y-1][self.sprite_x] !='1':
-                    self.postition_y -= 30
+                    self.position_y -= 30
                     self.sprite_y -= 1
                     
         elif direction == 'left':
