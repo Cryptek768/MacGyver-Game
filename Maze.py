@@ -1,4 +1,7 @@
 import pygame
+import random
+from Intel import *
+
 
 #Classe du Niveau(placement personnage et objets)
 
@@ -9,7 +12,6 @@ class Level:
         self.map_pool = map_pool
         self.map_structure = []
         self.available_tiles = []
-        self.map_structure = level_structure
         self.item_position_x = 0
         self.item_position_y = 0
         self.sprite_x = int(0 /30)
@@ -17,9 +19,9 @@ class Level:
         self.image_Macgyver = pygame.image.load(MacGyver).convert_alpha()
         self.image_Guardian = pygame.image.load(Guardian).convert_alpha()
         self.background = pygame.image.load(Background).convert()
-        self.Item_Needle = pygame.image.load(Object_N).convert_alpha()
-        self.Item_Ether = pygame.image.load(Object_E).convert_alpha()
-        self.Item_Tube = pygame.image.load(Object_T).convert_alpha()
+        self.item_needle = pygame.image.load(Object_N).convert_alpha()
+        self.item_ether = pygame.image.load(Object_E).convert_alpha()
+        self.item_tube = pygame.image.load(Object_T).convert_alpha()
 
     def level(self):
         with open (self.map_pool, "r") as map_pool:
@@ -48,28 +50,28 @@ class Level:
             num_line +=1
 
     def items_spawn_needle(self, level_structure):
-        rand_x = random.randint(0,14)
+        rand_x = random.randint(0, 14)
         rand_y = random.randint(0, 14)
         while level_structure [rand_x][rand_y] != str(0):
-            rand_x = random.randint(0,14)
+            rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
         self.item_position_x = rand_x * Sprite_Size
         self.item_position_y = rand_y * Sprite_Size
         
     def items_spawn_ether(self, level_structure):
-        rand_x = random.randint(0,14)
+        rand_x = random.randint(0, 14)
         rand_y = random.randint(0, 14)
         while level_structure [rand_x][rand_y] != str(0):
-            rand_x = random.randint(0,14)
+            rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
         self.item_position_x = rand_x * Sprite_Size
         self.item_position_y = rand_y * Sprite_Size
 
     def items_spawn_tube(self, level_structure):
-        rand_x = random.randint(0,14)
+        rand_x = random.randint(0, 14)
         rand_y = random.randint(0, 14)
         while level_structure [rand_x][rand_y] != str(0):
-            rand_x = random.randint(0,14)
+            rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
         self.item_position_x = rand_x * Sprite_Size
         self.item_position_y = rand_y * Sprite_Size
@@ -125,7 +127,3 @@ class Level:
                 if self.map_structure[self.sprite_y][self.sprite_x+1] != '1':
                    self.position_x += 30
                    self.sprite_x += 1
-
-    
-        
-    
