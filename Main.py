@@ -9,9 +9,9 @@ class Master:
         screen = pygame.display.set_mode((Size_Level, Size_Level))
         maze = Level("Map.txt")
         maze.level()
-        item_needle = Level.items_spawn_needle(maze.map_structure, screen)
-        item_ether = Level.items_spawn_ether(maze.map_structure, screen)
-        item_tube = Level.items_spawn_tube(maze.map_structure, screen)
+        item_needle = maze.items_spawn_needle(maze.map_structure)
+        item_ether = maze.items_spawn_ether(maze.map_structure)
+        item_tube = maze.items_spawn_tube(maze.map_structure)
         maze.display_wall(screen)
         
         while 1:
@@ -27,11 +27,11 @@ class Master:
                         maze.move_MG('down')
                         
             maze.display_wall(screen)
-            screen.blit(item_needle.items_spawn_needle(item_needle.item_position_y, item_needle.item_position_x))
-            screen.blit(maze.item_ether,(item_ether.item_position_y, item_ether.item_position_x))
-            screen.blit(maze.item_tube,(item_tube.item_position_y, item_tube.item_position_x))
+            screen.blit(item_needle,(maze.item_position_y, maze.item_position_x))
+            screen.blit(item_ether,(maze.item_position_y, maze.item_position_x))
+            screen.blit(item_tube,(maze.item_position_y, maze.item_position_x))
             screen.blit(maze.image_Macgyver,(MacGyver.position_y, MacGyver.position_x))
-            Guardian.blit_G(maze.map_structure, screen)
+            Guardian.blit_g(maze.map_structure, screen)
             pygame.display.flip()
             
     if __name__ =="__main__":
