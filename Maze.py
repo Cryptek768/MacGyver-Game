@@ -12,6 +12,8 @@ class Level:
         self.map_pool = map_pool
         self.map_structure = []
         self.available_tiles = []
+        self.position_x = 0
+        self.position_y = 0
         self.item_position_x = 0
         self.item_position_y = 0
         self.sprite_x = int(0 /30)
@@ -55,8 +57,8 @@ class Level:
         while level_structure [rand_x][rand_y] != str(0):
             rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
-        self.item_position_x = rand_x * Sprite_Size
-        self.item_position_y = rand_y * Sprite_Size
+            return (rand_x * Sprite_Size, rand_y * Sprite_Size)
+
         
     def items_spawn_ether(self, level_structure):
         rand_x = random.randint(0, 14)
@@ -64,8 +66,8 @@ class Level:
         while level_structure [rand_x][rand_y] != str(0):
             rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
-        self.item_position_x = rand_x * Sprite_Size
-        self.item_position_y = rand_y * Sprite_Size
+            return (rand_x * Sprite_Size, rand_y * Sprite_Size)
+
 
     def items_spawn_tube(self, level_structure):
         rand_x = random.randint(0, 14)
@@ -73,8 +75,7 @@ class Level:
         while level_structure [rand_x][rand_y] != str(0):
             rand_x = random.randint(0, 14)
             rand_y = random.randint(0, 14)
-        self.item_position_x = rand_x * Sprite_Size
-        self.item_position_y = rand_y * Sprite_Size
+            return (rand_x * Sprite_Size, rand_y * Sprite_Size)
 
     def blit_mg(self, level_structure, screen):
         num_line = 0

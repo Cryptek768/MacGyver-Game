@@ -1,6 +1,7 @@
 import pygame
 from Maze import *
 from Intel import *
+from pygame import K_DOWN, K_UP, K_LEFT, K_RIGHT
 
 class Master:
 
@@ -18,20 +19,21 @@ class Master:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == K_DOWN:
-                        maze.move_MG('right')
+                        maze.move_mg('right')
                     if event.key == K_UP:
-                        maze.move_MG('left')
+                        maze.move_mg('left')
                     if event.key == K_LEFT:
-                        maze.move_MG('up')
+                        maze.move_mg('up')
                     if event.key == K_RIGHT:
-                        maze.move_MG('down')
+                        maze.move_mg('down')
                         
             maze.display_wall(screen)
-            screen.blit(item_needle,(maze.item_position_y, maze.item_position_x))
-            screen.blit(item_ether,(maze.item_position_y, maze.item_position_x))
-            screen.blit(item_tube,(maze.item_position_y, maze.item_position_x))
-            screen.blit(maze.image_Macgyver,(MacGyver.position_y, MacGyver.position_x))
-            Guardian.blit_g(maze.map_structure, screen)
+            maze.move_mg(maze.image_Macgyver)
+            screen.blit(maze.image_Macgyver, (0, 0))
+            screen.blit(maze.image_Guardian, (420, 413))
+            screen.blit(maze.item_needle, item_needle)
+            screen.blit(maze.item_ether, item_ether)
+            screen.blit(maze.item_tube, item_tube)
             pygame.display.flip()
             
     if __name__ =="__main__":
