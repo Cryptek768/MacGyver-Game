@@ -10,31 +10,24 @@ class Master:
         screen = pygame.display.set_mode((Size_Level, Size_Level))
         maze = Level("Map.txt")
         maze.level()
-        item_needle = maze.items_spawn_needle(maze.map_structure)
-        item_ether = maze.items_spawn_ether(maze.map_structure)
-        item_tube = maze.items_spawn_tube(maze.map_structure)
-        maze.display_wall(screen)
-        
         while 1:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == K_DOWN:
-                        maze.move_mg('right')
+                        maze.move_mg('down', screen)
                     if event.key == K_UP:
-                        maze.move_mg('left')
+                        maze.move_mg('up', screen)
                     if event.key == K_LEFT:
-                        maze.move_mg('up')
+                        maze.move_mg('left', screen)
                     if event.key == K_RIGHT:
-                        maze.move_mg('down')
-                        
+                        maze.move_mg('right', screen)
             maze.display_wall(screen)
-            maze.move_mg(maze.image_Macgyver)
-            screen.blit(maze.image_Macgyver, (0, 0))
-            screen.blit(maze.image_Guardian, (420, 413))
-            screen.blit(maze.item_needle, item_needle)
-            screen.blit(maze.item_ether, item_ether)
-            screen.blit(maze.item_tube, item_tube)
+            maze.items_spawn(screen)
+            maze.blit_mg(screen)
+            maze.blit_g(screen)
             pygame.display.flip()
             
     if __name__ =="__main__":
         master()
+
+"du jeudi 23 a 20h"""

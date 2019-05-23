@@ -1,4 +1,4 @@
-# Informartion des variables Global et des images
+# Information des variables Global et des images
 
 Sprite_Size_Level = 15
 Sprite_Size = 30
@@ -11,3 +11,4 @@ Guardian = 'images/Guardian.png'
 Object_N = 'images/Needle.png'
 Object_E = 'images/Ether.png'
 Object_T = 'images/Tube.png'
+items = ["Object_N","Object_E","Object_T"]
